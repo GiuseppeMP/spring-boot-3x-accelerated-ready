@@ -5,9 +5,35 @@ package twlabsbrazil.handson.genai.shared;
  */
 public class Pessoa {
 
+    private int age;
+    private String name;
+
     public static Pessoa create(String string, int i) {
-        
-        return new Pessoa();
+
+        Pessoa pessoa = new Pessoa();
+        pessoa.setName(string);
+        pessoa.setAge(i);
+        return pessoa;
+    }
+
+    private Pessoa() {
+
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getName() {
+        return name;
     }
 
 
