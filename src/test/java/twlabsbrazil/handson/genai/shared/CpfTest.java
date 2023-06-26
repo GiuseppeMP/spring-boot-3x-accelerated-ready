@@ -13,7 +13,7 @@ public class CpfTest {
     private Faker faker = new Faker();
 
     @ParameterizedTest
-    @ValueSource(strings = {"26878749018", "868.787.490-18", "996.598.050-04", "182.429.920-61"})
+    @ValueSource(strings = {"86878749018", "868.787.490-18", "996.598.050-04", "182.429.920-61"})
     public void test_if_cpf_is_valid(String cpf) {
         assertThat(Cpf.isValid(cpf)).as("CPF %s should be valid", cpf).isTrue();
     }
