@@ -2,13 +2,12 @@ package twlabsbrazil.handson.genai.shared;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
-
 import org.junit.jupiter.api.DisplayNameGeneration;
 import org.junit.jupiter.api.DisplayNameGenerator.ReplaceUnderscores;
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
-import org.junit.jupiter.api.Test;
-import com.github.javafaker.Faker;
+import net.datafaker.Faker;
 
 /**
  * PessoaTest
@@ -40,12 +39,11 @@ public class PessoaTest {
     }
 
     @ParameterizedTest
-    @ValueSource(ints = {151, -1, 0, 121})
+    @ValueSource(ints = {151, -1, -44, 121, -2})
     public void test_idade_invalida_deve_disparar_illegal_args_exception(int age) throws Exception {
         Faker faker = new Faker();
         String name = faker.name().fullName();
-        assertThatThrownBy(() -> Pessoa.create(name, age))
-                .as("Invalid age: "  + age)
+        assertThatThrownBy(() -> Pessoa.create(name, age)).as("Invalid age: " + age)
                 .isInstanceOf(IllegalArgumentException.class);
     }
 
