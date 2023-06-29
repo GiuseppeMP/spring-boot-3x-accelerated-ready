@@ -171,6 +171,7 @@
                     <excludes>
                         <exclude>**/**IT.java</exclude>
                         <exclude>**/**IntTest.java</exclude>
+                        <exclude>**/**IntegrationTest.java</exclude>
                     </excludes>
                 </configuration>
             </plugin>
@@ -190,6 +191,28 @@
                         <phase>prepare-package</phase>
                         <goals>
                             <goal>report</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+
+            <plugin>
+                <artifactId>maven-failsafe-plugin</artifactId>
+                <version>3.1.2</version>
+                <configuration>
+                    <includes>
+                        <include>**/**IT.java</include>
+                        <include>**/**IntTest.java</include>
+                        <include>**/**IntegrationTest.java</include>
+                    </includes>
+                    <parallel>methods</parallel>
+                    <threadCount>2</threadCount>
+                </configuration>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>integration-test</goal>
+                            <goal>verify</goal>
                         </goals>
                     </execution>
                 </executions>
@@ -222,9 +245,6 @@
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-report-plugin</artifactId>
                 <version>3.1.2</version>
-                <configuration>
-                    <outputName>JUnit-Examples-Test-Report</outputName>
-                </configuration>
             </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
