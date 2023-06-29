@@ -19,8 +19,8 @@ public class RedisBackedCacheIntTest {
 
     // container {
     @Container
-    public GenericContainer redis =
-            new GenericContainer(DockerImageName.parse("redis:5.0.3-alpine"))
+    public GenericContainer<?> redis =
+            new GenericContainer<>(DockerImageName.parse("redis:5.0.3-alpine"))
                     .withExposedPorts(6379);
 
     private Map<String, Integer> underTest;
