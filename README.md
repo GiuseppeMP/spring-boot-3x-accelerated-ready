@@ -2,7 +2,7 @@
 
 ## Template Features
 
-<img width="714" alt="image" src="https://github.com/GiuseppeMP/spring-boot-api-3x-accelerate-ready/assets/4944009/cdda8229-9dfb-42f3-8ea9-a1f056a7c395">
+<img width="500" alt="image" src="https://github.com/GiuseppeMP/spring-boot-api-3x-accelerate-ready/assets/4944009/cdda8229-9dfb-42f3-8ea9-a1f056a7c395">
 
 
 ## Dependencies
