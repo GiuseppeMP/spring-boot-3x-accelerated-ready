@@ -1,10 +1,27 @@
 package skeleton;
 
 /**
- * Calculadora
+ * The Calculadora class represents a simple calculator that can perform addition operations.
+ * 
+ * This class provides a method to add two integers and return the result.
+ * 
+ * Example usage:
+ * 
+ *     Calculadora calculadora = new Calculadora();
+ *     int result = calculadora.somar(5, 3);
+ *     System.out.println(result); // Output: 8
  */
 public class Calculadora {
-	public int somar(int a, int b){
-		return a+b;
-	}
+    
+    /**
+     * Adds two integers and returns the result.
+     * 
+     * @param a The first integer to be added.
+     * @param b The second integer to be added.
+     * @return The sum of the two integers.
+     */
+    public int somar(final int a, final int b){
+        return a+b;
+    }
 }
+

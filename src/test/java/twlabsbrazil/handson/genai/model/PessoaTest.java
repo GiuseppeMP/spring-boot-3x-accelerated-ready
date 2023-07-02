@@ -1,4 +1,4 @@
-package twlabsbrazil.handson.genai.shared;
+package twlabsbrazil.handson.genai.model;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;

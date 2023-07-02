@@ -1,4 +1,4 @@
-package twlabsbrazil.handson.genai.shared;
+package twlabsbrazil.handson.genai.model;
 
 /**
  * Pessoa
