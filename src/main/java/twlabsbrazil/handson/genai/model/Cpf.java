@@ -1,13 +1,28 @@
 package twlabsbrazil.handson.genai.model;
 
-public class Cpf {
+import java.util.function.BooleanSupplier;
+import twlabsbrazil.handson.genai.shared.ValueObject;
+
+public class Cpf implements ValueObject<String> {
+
+    String value;
+
+    private Cpf(String value) {
+        this.value = value;
+    }
+
+    static Cpf create(String value) {
+        if(!Cpf.isValid(value))
+            throw new IllegalArgumentException("Cpf value is invalid: " + value);
+        return new Cpf(value);
+
+    }
 
     /**
      * @param cpf
      * @return boolean
      */
-
-    public static boolean isValid(String cpf) {
+    static private boolean isValid(String cpf) {
         cpf = cpf.replaceAll("[^0-9]", ""); // Remove everything except digits
         if (cpf.equals("00000000000") || cpf.equals("11111111111") || cpf.equals("22222222222")
                 || cpf.equals("33333333333") || cpf.equals("44444444444")
@@ -63,5 +78,51 @@ public class Cpf {
             return (false);
         }
     }
+
+    @Override
+    public boolean sameValueAs(String other) {
+        return this.value == null ? other == null : this.value.equals(other);
+    }
+
+    @Override
+    public String getValue() {
+        return this.value;
+    }
+
+    public static boolean validarCpf(String cpf) {
+        cpf = cpf.replaceAll("\\D", "");
+
+        if (cpf.length() != 11) {
+            return false;
+        }
+
+        int[] digits = new int[11];
+        for (int i = 0; i < 11; i++) {
+            digits[i] = Integer.parseInt(cpf.substring(i, i + 1));
+        }
+        
+        int sum = 0;
+        for (int i = 0; i < 9; i++) {
+            sum += digits[i] * (10 - i);
+        }
+
+        int firstDigit = sum % 11 < 2 ? 0 : 11 - (sum % 11);
+        if (firstDigit == 10) {
+            firstDigit = 0;
+        }
+
+        sum = 0;
+        for (int i = 0; i < 10; i++) {
+            sum += digits[i] * (11 - i);
+        }
+
+        int secondDigit = sum % 11 < 2 ? 0 : 11 - (sum % 11);
+        if (secondDigit == 10) {
+            secondDigit = 0;
+        }
+
+        return firstDigit == digits[9] && secondDigit == digits[10];
+    }
+
 
 }

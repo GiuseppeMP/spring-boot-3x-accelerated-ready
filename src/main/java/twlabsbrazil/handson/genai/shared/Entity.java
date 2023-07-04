@@ -1,10 +1,12 @@
 package twlabsbrazil.handson.genai.shared;
 
+import java.io.Serializable;
+
 /**
  * An entity, as explained in the DDD book.
  *  
  */
-public interface Entity<T> {
+public interface Entity<T> extends Serializable {
 
   /**
    * Entities compare by identity, not by attributes.
