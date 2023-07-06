@@ -1,4 +1,4 @@
-# Hand ons Thoughtworks Brazil with gen-ais
+# Hand ons gen-ais
 
 ## Template Features
 
