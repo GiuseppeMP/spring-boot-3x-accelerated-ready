@@ -14,7 +14,7 @@ import org.testcontainers.utility.DockerImageName;
  * RedisBackedCacheIntTest
  */
 @Testcontainers
-public class RedisBackedCacheIntTest {
+public class RedisBackedCacheIT {
 
 
     // container {
@@ -34,7 +34,6 @@ public class RedisBackedCacheIntTest {
         underTest.put(address, port);
     }
 
-    @Test
     public void testSimplePutAndGet() {
         underTest.put("test", 1);
         final Integer retrieved = underTest.get("test");

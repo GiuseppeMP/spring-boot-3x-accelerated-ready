@@ -1,6 +1,5 @@
 package twlabsbrazil.handson.genai.model;
 
-import java.util.function.BooleanSupplier;
 import twlabsbrazil.handson.genai.shared.ValueObject;
 
 public class Cpf implements ValueObject<String> {
@@ -12,7 +11,7 @@ public class Cpf implements ValueObject<String> {
     }
 
     static Cpf create(String value) {
-        if(!Cpf.isValid(value))
+        if (!Cpf.isValid(value))
             throw new IllegalArgumentException("Cpf value is invalid: " + value);
         return new Cpf(value);
 
@@ -100,7 +99,7 @@ public class Cpf implements ValueObject<String> {
         for (int i = 0; i < 11; i++) {
             digits[i] = Integer.parseInt(cpf.substring(i, i + 1));
         }
-        
+
         int sum = 0;
         for (int i = 0; i < 9; i++) {
             sum += digits[i] * (10 - i);
@@ -123,6 +122,5 @@ public class Cpf implements ValueObject<String> {
 
         return firstDigit == digits[9] && secondDigit == digits[10];
     }
-
 
 }
